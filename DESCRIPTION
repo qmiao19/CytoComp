@@ -15,4 +15,4 @@ Imports:
     nloptr,
     nnls,
     diptest
-    
+RoxygenNote: 6.1.1

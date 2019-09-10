@@ -2,7 +2,7 @@
   results <- list()
   xcols <- .GetFmla(data, spill_cols = .SpillColsData(data))
   for (i in 1:ncol(data)) {
-    if (!is.na(xcols[[i]])) {
+    if (!is.na(xcols[[i]][1])) {
       A = as.matrix(data[which(data[,i] < cutoffs[i]), xcols[[i]]])
       b = data[which(data[,i] < cutoffs[i]), i]
       x0 = runif(ncol(A), min = 0, max = upperbound)
@@ -10,7 +10,13 @@
         vec = A%*%x-b
         norm(vec, type = "2")
       }
-      result = nloptr::slsqp(x0, fn, lower=rep(0, length(x0)), upper = rep(upperbound, length(x0)))$par
+      result = try(nloptr::slsqp(x0, fn, lower=rep(0, length(x0)), upper = rep(upperbound, length(x0))))
+      if (isTRUE(class(result) == "try-error")) {
+        result <- NULL
+        xcols[[i]] <- NA
+      } else{
+        result <- result$par
+      }
       results[[i]] <- result
     } else {
       results[[i]] <- NULL
