@@ -13,27 +13,27 @@ knitr::opts_chunk$set(
 )
 ```
 
-# CytoComp
+# CytoSpill
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of CytoComp is to compensate the spillover effects in CyTOF data which caused by technical effects without relying on control experiment.
+The goal of CytoSpill is to compensate the spillover effects in CyTOF data which caused by technical effects without relying on control experiment.
 
 ## Installation
 
-You can install the development version of CytoComp from [GitHub](https://github.com/) with:
+You can install the development version of CytoSpill from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("qmiao19/CytoComp")
+devtools::install_github("qmiao19/CytoSpill")
 ```
 ## Example
 
 This is a example which shows you how to compensate a CyTOF dataset, we used a sample dataset that included in our package here:
 
 ```{r}
-library(CytoComp)
+library(CytoSpill)
 getwd()
 load(file="./data/Levine32.RData")
 str(data_Levine32)

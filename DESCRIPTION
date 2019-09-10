@@ -1,4 +1,4 @@
-Package: CytoComp
+Package: CytoSpill
 Type: Package
 Title: de novo CyTOF compensation
 Version: 0.1.0

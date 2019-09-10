@@ -1,20 +1,20 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-CytoComp
-========
+CytoSpill
+=========
 
 <!-- badges: start -->
 <!-- badges: end -->
-The goal of CytoComp is to compensate the spillover effects in CyTOF data which caused by technical effects without relying on control experiment.
+The goal of CytoSpill is to compensate the spillover effects in CyTOF data which caused by technical effects without relying on control experiment.
 
 Installation
 ------------
 
-You can install the development version of CytoComp from [GitHub](https://github.com/) with:
+You can install the development version of CytoSpill from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("qmiao19/CytoComp")
+devtools::install_github("qmiao19/CytoSpill")
 ```
 
 Example
@@ -23,9 +23,9 @@ Example
 This is a example which shows you how to compensate a CyTOF dataset, we used a sample dataset that included in our package here:
 
 ``` r
-library(CytoComp)
+library(CytoSpill)
 getwd()
-#> [1] "/Users/qmiao/CytoComp"
+#> [1] "/Users/qmiao/CytoSpill"
 load(file="./data/Levine32.RData")
 str(data_Levine32)
 #>  num [1:10000, 1:37] 459501 88341 129149 59689 267864 ...
