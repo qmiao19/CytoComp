@@ -39,7 +39,7 @@ load(file="./data/Levine32.RData")
 str(data_Levine32)
 ```
 
-We randomly sampled 10,000 cells from the healthy human bone marrow data used in Levine, 2015. 
+We sampled 5,000 cells from the healthy human bone marrow data used in Levine, 2015. 
 We can check the colunmns of this CyTOF dataset:
 
 ```{r cols}
@@ -55,12 +55,12 @@ markers
 After checking the markers we decided to compensate for columns 5 to 36.
 We can use the function GetSpillMat to obtain the compensation matrix. We need to specify the data we are using, which column are used to calculate the spillover effects and using how many cells for calculation.
 
-```{r spillmat}
+```{r spillmat, eval=FALSE}
 GetSpillMat(data = data_Levine32, cols = c(5:36), n = 5000)
 ```
 
 Or we can directly obtain the compensated data and write it as a fcs format file using SpillComp function. In addition, we need to give the function an output file name.
 
-```{r compensation}
+```{r compensation, eval=FALSE}
 SpillComp(data = data_Levine32, cols = c(5:36), n = 5000, output = 'Levine32_compensation.fcs')
 ``` 
