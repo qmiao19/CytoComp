@@ -15,7 +15,7 @@
     if (diptest::dip.test(a_asinh)[2] > 0.05) {
       cutoff_channeli <- quantile(a_asinh, probs = quantile)
     } else {
-      fit_channeli <- try(em(a_asinh, "normal", "log-normal", t = 0.001), silent=TRUE)
+      fit_channeli <- try(em(a_asinh, "normal", "log-normal", t = 0.001), silent=FALSE)
       if (isTRUE(class(fit_channeli) == "try-error")) {
         cutoff_channeli <- quantile(a_asinh, probs = quantile)
       } else {

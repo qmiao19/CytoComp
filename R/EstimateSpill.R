@@ -1,5 +1,6 @@
-.EstimateSpill <- function(data, cutoffs, upperbound = 0.1) {
+.EstimateSpill <- function(data, cutoffs, cols, upperbound = 0.1) {
   results <- list()
+  data <- data[,cols]
   xcols <- .GetFmla(data, spill_cols = .SpillColsData(data))
   for (i in 1:ncol(data)) {
     if (!is.na(xcols[[i]][1])) {

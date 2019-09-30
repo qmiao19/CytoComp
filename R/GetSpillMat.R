@@ -4,7 +4,7 @@ GetSpillMat <- function(data = NULL, cols, n, file = NULL, threshold = 0.1) {
     data <- flowCore::exprs(flowCore::read.FCS(file, transformation = FALSE, truncate_max_range = FALSE))
   }
   cutoffs <- .DeriveCutoffs(data, cols, n)
-  model <- .EstimateSpill(data, cutoffs, upperbound = threshold)
+  model <- .EstimateSpill(data, cutoffs, cols, upperbound = threshold)
   estimates <- model[[1]]
   xcols <- model[[2]]
   spillmat <- diag(length(xcols))
